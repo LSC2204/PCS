@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.ReportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Report">
+        <id column="report_id" property="reportId" />
+        <result column="user_id" property="userId" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="time" property="time" />
+        <result column="is_first" property="isFirst" />
+        <result column="review_remarks" property="reviewRemarks" />
+        <result column="score" property="score" />
+        <result column="reportTime" property="reportTime" />
+        <result column="teacherName" property="teacherName" />
+        <result column="userName" property="userName" />
+
+
+
+    </resultMap>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Report">
+        select * from report;
+    </select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.ReviewMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Review">
+        <id column="review_id" property="reviewId" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="time" property="time" />
+        <result column="is_first" property="isFirst" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="teacher_name" property="teacherName" />
+        <result column="review_remarks" property="reviewRemarks" />
+        <result column="review_score" property="reviewScore" />
+        <result column="review_time" property="reviewTime" />
+        <result column="result_time" property="resultTime" />
+    </resultMap>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Review">
+        select * from review;
+    </select>
+    <select id="get_by_teacher" resultType="com.example.mybatisplus.model.domain.Review">
+        select * from  review where teacher_id <![CDATA[ = ]]> '${item}';
+    </select>
+    <select id="get_by_result" resultType="com.example.mybatisplus.model.domain.Review">
+        select * from  review where result_time <![CDATA[ = ]]> '${item}';
+    </select>
+
+</mapper>

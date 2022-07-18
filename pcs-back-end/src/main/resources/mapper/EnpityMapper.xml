@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.EnpityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Enpity">
+        <id column="enpity_id" property="enpityId" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="teacherName" property="teacherName" />
+        <result column="teacherType" property="teacherType" />
+        <result column="mon_m" property="monM" />
+        <result column="mon_a" property="monA" />
+        <result column="tue_m" property="tueM" />
+        <result column="tue_a" property="tueA" />
+        <result column="wed_m" property="wedM" />
+        <result column="wed_a" property="wedA" />
+        <result column="thu_m" property="thuM" />
+        <result column="thu_a" property="thuA" />
+        <result column="fri_m" property="friM" />
+        <result column="fri_a" property="friA" />
+        <result column="sat_m" property="satM" />
+        <result column="sat_a" property="satA" />
+        <result column="sun_m" property="sunM" />
+        <result column="sun_a" property="sunA" />
+    </resultMap>
+    <update id="update_by">
+        update enpity set ${item2} <![CDATA[ = ]]> ${item2} <![CDATA[ - ]]> 1 where teacher_name <![CDATA[ = ]]> '${item1}';
+    </update>
+    <update id="update_add">
+        update enpity set ${item2} <![CDATA[ = ]]> ${item2} <![CDATA[ + ]]> 1 where teacher_name <![CDATA[ = ]]> '${item1}';
+    </update>
+    <update id="update_agree">
+         update enpity set ${item2} <![CDATA[ = ]]> 0 where teacher_id <![CDATA[ = ]]> '${item1}';
+    </update>
+    <update id="update_end">
+        update enpity set ${item2} <![CDATA[ = ]]> 3 where teacher_id <![CDATA[ = ]]> '${item1}';
+    </update>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select * from enpity;
+    </select>
+
+    <select id="getall_have" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select *from enpity where mon_m  <![CDATA[ > ]]> 0 or mon_a  <![CDATA[ > ]]> 0 or
+        tue_a  <![CDATA[ > ]]> 0 or tue_m  <![CDATA[ > ]]> 0 or wed_a  <![CDATA[ > ]]> 0 or
+        wed_m  <![CDATA[ > ]]> 0 or thu_a  <![CDATA[ > ]]> 0 or thu_m  <![CDATA[ > ]]> 0 or
+        fri_a  <![CDATA[ > ]]> 0 or fri_m  <![CDATA[ > ]]> 0 or sat_a  <![CDATA[ > ]]> 0 or
+        sat_m  <![CDATA[ > ]]> 0 or sun_a  <![CDATA[ > ]]> 0 or sun_m  <![CDATA[ > ]]> 0;
+    </select>
+
+    <select id="getenpity" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select * from enpity
+        <where>
+            <foreach collection="item1" item="item1" open="(" close=") and " separator=" or ">
+                 teacher_id <![CDATA[ = ]]> '${item1}'
+            </foreach>
+            <foreach collection="item" item="item" open="(" close=")" separator=" or ">
+                 ${item}  <![CDATA[ > ]]> 0
+            </foreach>
+        </where>
+    </select>
+
+
+    <select id="getbytime" resultType="java.lang.String">
+        select teacher_name from enpity
+        <where>
+                ${item}  <![CDATA[ > ]]> 0 and teacher_type <![CDATA[ = ]]> 3;
+        </where>
+    </select>
+
+    <select id="getbyteacher" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select * from enpity
+        <where>
+            teacher_name  <![CDATA[ = ]]> '${item}' and (teacher_type <![CDATA[ = ]]> 3 or teacher_type <![CDATA[ = ]]> 4)  ;
+        </where>
+    </select>
+    <select id="getbytime_no" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select teacher_name from enpity
+        <where>
+            ${item}  <![CDATA[ > ]]> 0 and teacher_type <![CDATA[ = ]]> 4;
+        </where>
+    </select>
+    <select id="getowner" resultType="com.example.mybatisplus.model.domain.Enpity">
+        select * from enpity where teacher_id <![CDATA[ = ]]> '${item}';
+    </select>
+
+
+</mapper>

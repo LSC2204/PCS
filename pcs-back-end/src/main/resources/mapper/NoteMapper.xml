@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.NoteMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Note">
+        <id column="note_id" property="noteId" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="teacher_name" property="teacherName" />
+        <result column="note_time" property="noteTime" />
+        <result column="is_success" property="isSuccess" />
+        <result column="is_finish" property="isFinish" />
+        <result column="note_reason" property="noteReason" />
+        <result column="createTime" property="createTime" />
+    </resultMap>
+    <select id="getby_teacher" resultType="com.example.mybatisplus.model.domain.Note">
+        select * from note where teacher_id <![CDATA[ = ]]> '${item}';
+    </select>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Note">
+        select * from note;
+    </select>
+
+</mapper>

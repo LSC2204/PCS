@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.EvaluationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Evaluation">
+        <id column="evaluation_id" property="evaluationId" />
+        <result column="user_id" property="userId" />
+        <result column="teacher_id" property="teacherName" />
+        <result column="time" property="time" />
+        <result column="fellings" property="fellings" />
+        <result column="score" property="score" />
+        <result column="evaluationTime" property="evaluationTime" />
+        <result column="resultTime" property="resultTime" />
+    </resultMap>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Evaluation">
+        select * from evaluation;
+    </select>
+    <select id="getall_person" resultType="com.example.mybatisplus.model.domain.Evaluation">
+        select * from evaluation where user_id <![CDATA[ = ]]> '${item}';
+    </select>
+    <select id="getall_teacher" resultType="com.example.mybatisplus.model.domain.Evaluation">
+        select * from evaluation where teacher_name <![CDATA[ = ]]> '${item}';
+    </select>
+    <select id="getall_teacher" resultType="com.example.mybatisplus.model.domain.Evaluation">
+        select * from evaluation where teacher_name <![CDATA[ = ]]> '${item}';
+    </select>
+</mapper>
