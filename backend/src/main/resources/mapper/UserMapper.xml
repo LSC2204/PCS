@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.User">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="user_type" property="userType" />
+    </resultMap>
+    <select id="getteacher" resultType="com.example.mybatisplus.model.domain.User">
+        select * from user where user_type=3;
+    </select>
+    <select id="getuser" resultType="com.example.mybatisplus.model.domain.User">
+        select * from user where user_type=2;
+    </select>
+    <select id="getfirst" resultType="com.example.mybatisplus.model.domain.User">
+        select * from user where user_type=4;
+    </select>
+    <select id="getOne" resultType="Integer">
+        select count(*) from user where name= '${item}';
+    </select>
+
+
+</mapper>

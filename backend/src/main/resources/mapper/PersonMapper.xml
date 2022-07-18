@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.PersonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.mybatisplus.model.domain.Person">
+        <id column="person_id" property="personId" />
+        <result column="name" property="name" />
+        <result column="person_name" property="personName" />
+        <result column="birthday" property="birthday" />
+        <result column="sex" property="sex" />
+        <result column="phone_number" property="phoneNumber" />
+        <result column="address" property="address" />
+        <result column="isfirst" property="isfirst" />
+    </resultMap>
+    <select id="getall" resultType="com.example.mybatisplus.model.domain.Person">
+        select * from person;
+    </select>
+
+    <select id="getteacher" resultMap="BaseResultMap">
+        select * from person
+        <where>
+            name in<foreach item="loginUser" collection="loginUser" index="index" open="(" separator="," close=")">
+            #{loginUser}
+        </foreach>
+        </where>
+    </select>
+    <select id="getuser" resultType="com.example.mybatisplus.model.domain.Person">
+        select * from person
+        <where>
+            name in<foreach item="user" collection="user" index="index" open="(" separator="," close=")">
+            #{user}
+        </foreach>
+        </where>
+    </select>
+    <select id="selectByuserId" resultType="com.example.mybatisplus.model.domain.Person">
+        select * from person where name <![CDATA[ = ]]> '${item}';
+    </select>
+
+</mapper>
