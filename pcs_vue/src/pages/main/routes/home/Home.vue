@@ -1,11 +1,14 @@
 <template>
   <div class="home-wrapper">
+    <div style="margin:50px 0px"></div>
     <el-row>
+      
       <el-col :span="6" :offset="5">
         <flip-clock />
       </el-col>  
     </el-row>
-    <div class="date-row">
+    <div style="margin:100px 0px"></div>
+    <!-- <div class="date-row">
       <div v-for="(item, index) in LinksData" :key="index" class="data-col" >
         <a :href="item.path" style="text-decoration:none">
         <el-card shadow="always" :body-style="{padding: '0px'}">
@@ -17,7 +20,7 @@
         </a>
       </div>
 
-    </div>
+    </div> -->
       <el-row :gutter="20" style="margin:0 55px">
         <el-col :span="8">
           <el-carousel height="400px">

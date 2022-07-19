@@ -45,7 +45,7 @@ export default {
         {
           path: '/main/rest_check',
           icon: 'el-icon-s-check',
-          title: '请假审核（注意分开）',
+          title: '请假审核',
         },
         {
           path: '/main/user_inf',

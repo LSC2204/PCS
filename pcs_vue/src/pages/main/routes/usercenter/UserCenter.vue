@@ -7,7 +7,65 @@
       <!-- <div class="user-avatar">
         <img src="../assets/img/avatar.png" alt="avatar">
       </div> -->
-      <ul class="user-info" style="list-style:none;margin-left:30%">
+      <el-row :gutter="50" style="margin-left:30%">
+        <el-col :span="7">
+          <label>用户名：</label>
+          <span>{{ userInfo.username }}</span>
+        </el-col>
+        <el-col :span="7">
+          <label>角色：</label>
+          <span>{{ userInfo.role }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="7">
+          <label>真实姓名：</label>
+          <span>{{ userInfo.realName }}</span>
+        </el-col>
+        <el-col :span="7">
+          <label>性别：</label>
+          <span>{{ userInfo.sex }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="24">
+          <label>生日：</label>
+          <span>{{ userInfo.birthday }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="24">
+          <label>地址：</label>
+          <span>{{ userInfo.address }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="24">
+          <label>电话号码：</label>
+          <span>{{ userInfo.phone }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="24">
+          <label>邮箱：</label>
+          <span>{{ userInfo.email }}</span>
+        </el-col>
+      </el-row>
+      <el-row :gutter="50" style="margin-left:30%;margin-top:30px">
+        <el-col :span="7" style="margin-top:11px">
+          <label>是否需要初访：</label>
+          <span>{{ is_first }}</span>
+        </el-col>
+        <el-col :span="12">
+                    <label>密码：</label>
+          <span>{{ showPassword }}</span>
+          <el-button style="margin-left:30px" icon="el-icon-view" circle @click="is_covered=!is_covered"></el-button>
+          <el-button icon="el-icon-edit" circle @click="pwdFormVisible = true"></el-button>
+  </el-col>
+
+      </el-row>
+      <el-button style="margin:10px 45%" type="primary" @click="basicFormVisible= true">基本信息修改</el-button>
+      <!-- <ul class="user-info" style="list-style:none;margin-left:30%">
         <li>
           <label>用户名：</label>
           <span>{{ userInfo.username }}</span>
@@ -54,7 +112,7 @@
           <el-button style="margin-left:30px" icon="el-icon-view" circle @click="is_covered=!is_covered"></el-button>
           <el-button icon="el-icon-edit" circle @click="pwdFormVisible = true"></el-button>
         </li>
-      </ul>
+      </ul> -->
 
     </el-card>
           <el-dialog title="基本信息修改" :visible.sync="basicFormVisible">

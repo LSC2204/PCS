@@ -18,8 +18,8 @@
         <el-form-item label="请假日期" prop="time_select">
             <div style="width:800px">
                 <el-radio-group v-model="restData.noteTime" >
-                  <el-radio v-for="(time,index) in weekitemList" :label="time.eng" :key="index" style="margin-top:10px">
-                  
+                  <el-radio v-for="(time,index) in weekitemList" :label="time.eng" :key="index" style="margin-top:10px" >
+                  {{time.zh}}
                   </el-radio>
               
               </el-radio-group>
