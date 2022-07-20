@@ -279,7 +279,7 @@ public class UserController {
 
             person.setPhoneNumber(userPerson.getPhoneNumber());
             person.setAddress(userPerson.getAddress());
-            person.setIsfirst(false);
+            person.setIsfirst(true);
             person.setSex(userPerson.getSex());
             person.setName(userPerson.getName());
             person.setPersonName(userPerson.getPersonName());
