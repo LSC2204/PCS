@@ -169,7 +169,7 @@
             <div style="width:800px">
                 <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox> -->
                 <div style="margin: 15px 0;"></div>
-                <el-checkbox-group v-model="checkedTimes" @change="handleCheckedCityChange">
+                <el-checkbox-group v-model="checkedTimes" @change="handleCheckedCityChange" :max="3">
 
                     <el-checkbox v-for="time in weekitemList" :label="time" :key="time"><div style="margin: 5px 0;"></div>{{time}}</el-checkbox>
                 </el-checkbox-group>

@@ -1,5 +1,16 @@
 <template>
 <div>
+
+    <el-dialog 
+        title="提示"
+        :visible.sync="n_is_first"
+        width="30%"
+        :before-close="handleClose2">
+        <span>您已初访过，请直接进行咨询预约表的填写</span>
+        <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="handleDialogClick">确 定</el-button>
+        </span>
+    </el-dialog>
     <Hints>
       <template slot="hintName">预约注意事项：</template>
       <template slot="hintInfo">
@@ -157,7 +168,7 @@
             <div style="width:800px">
                 <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox> -->
                 <div style="margin: 15px 0;"></div>
-                <el-checkbox-group v-model="checkedTimes" @change="handleCheckedCityChange">
+                <el-checkbox-group v-model="checkedTimes" @change="handleCheckedCityChange" :max="3">
 
                     <el-checkbox v-for="time in weekitemList" :label="time" :key="time"><div style="margin: 5px 0;"></div>{{time}}</el-checkbox>
                 </el-checkbox-group>
@@ -215,7 +226,8 @@
         choice1:'', choice2:'', choice3:'', choice4:'', choice5:'', choice6:'', choice7:'', choice8:'', choice9:'', choice10:'',
         choice11:'', choice12:'', choice13:'', choice14:'', choice15:'', choice16:'', choice17:'',
         tea_name:[],
-        is_first:null,
+        is_first:false,
+        n_is_first:true,
         rules: {
 
 
@@ -236,11 +248,15 @@
           console.info(res.data)
           console.info("hi")
         this.is_first=res.data.isfirst
+        this.n_is_first=!res.data.is_first
       this.wk=new Date().getDay()
     })
     userInfo.role=this.getRoleName
     },
     methods: {
+    handleDialogClick(){
+        this.$router.push({name: 'main'})
+    },
       add_score1(){
           if(this.choice1=='从未发生'){
             this.score_t+=0
