@@ -22,7 +22,4 @@
     <select id="getall_teacher" resultType="com.example.mybatisplus.model.domain.Evaluation">
         select * from evaluation where teacher_name <![CDATA[ = ]]> '${item}';
     </select>
-    <select id="getall_teacher" resultType="com.example.mybatisplus.model.domain.Evaluation">
-        select * from evaluation where teacher_name <![CDATA[ = ]]> '${item}';
-    </select>
 </mapper>

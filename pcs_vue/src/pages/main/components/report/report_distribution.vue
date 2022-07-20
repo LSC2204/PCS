@@ -14,12 +14,12 @@
                     <el-option label="星期二下午" value="tue_a"></el-option>
                     <el-option label="星期三上午" value="wed_m"></el-option>
                     <el-option label="星期三下午" value="wed_a"></el-option>
-                    <el-option label="星期四上午" value="the_m"></el-option>
+                    <el-option label="星期四上午" value="thu_m"></el-option>
                     <el-option label="星期四下午" value="the_a"></el-option>
                     <el-option label="星期五上午" value="fri_m"></el-option>
                     <el-option label="星期五下午" value="fri_a"></el-option>
-                    <el-option label="星期六上午" value="sta_m"></el-option>
-                    <el-option label="星期六下午" value="sta_a"></el-option>
+                    <el-option label="星期六上午" value="sat_m"></el-option>
+                    <el-option label="星期六下午" value="sat_a"></el-option>
                     <el-option label="星期日上午" value="sun_m"></el-option>
                     <el-option label="星期日下午" value="sun_a"></el-option>
 
