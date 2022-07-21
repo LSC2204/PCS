@@ -5,7 +5,6 @@
             width="30%"
             :before-close="handleClose">
         <el-form :model="form">
-
             <el-form-item label="分配时间" prop="time">
                 <el-select @change="post_t()" v-model="time" placeholder="请选择分配时间" >
                     <el-option label="星期一上午" value="mon_m"></el-option>

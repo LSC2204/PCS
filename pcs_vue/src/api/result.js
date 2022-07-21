@@ -20,4 +20,5 @@ export const get_review_all = (res) => http.GET('/api/review/getall', res)
 export const give_rev = (res) => http.POST('/api/review/save?resultId='+res.resultId+'&reviewMarks='+res.fellings+'&reviewScore='+res.score)
 export const give_eval = (res) => http.POST('/api/evaluation/save?resultId='+res.resultId+'&score='+res.score+'&fellings='+res.fellings)
 export const give_eval_by_name = (res) => http.POST('/api/evaluation/getbyteacher?teacher_name='+res)
-
+export const get_result_by_id = (res) => http.POST('/api/result/get',res)
+export const update_result = (form) => http.POST('/api/result/update',form)

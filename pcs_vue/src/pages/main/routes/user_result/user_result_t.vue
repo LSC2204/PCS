@@ -1,6 +1,24 @@
 <template>
 
     <div>
+              <el-dialog
+                        title="提示"
+                        :visible.sync="eightDialogVisible"
+                        width="40%"
+                        :before-close="handleClose">
+            <el-form >
+            <el-form-item style="width:100px" label="给咨询师打分" prop="score">
+                <el-input v-model.number="score"></el-input>
+            </el-form-item>
+            <el-form-item style="width:550px" label="咨询详情" prop="des">
+                <el-input type="textarea" v-model="des"></el-input>
+            </el-form-item>
+            </el-form>
+                    <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="give_inf()">提 交</el-button>
+          </span>
+        </el-dialog>
         <el-dialog
                         title="提示"
                         :visible.sync="dialogVisible"
@@ -92,7 +110,8 @@
           result:[],
           id_exchange:1,
           score:1,
-          des:''
+          des:'',
+          eightDialogVisible
         }
       },
       created(){

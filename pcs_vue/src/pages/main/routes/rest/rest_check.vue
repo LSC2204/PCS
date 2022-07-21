@@ -29,6 +29,9 @@
                 label="期望时间"
                 prop="noteTime"
                 width="180">
+            <template slot-scope="scope">
+            <span>{{ getChineseDate(scope.row.noteTime) }}</span>
+            </template>
         </el-table-column>
         <el-table-column
                 label="请假原因"
@@ -56,6 +59,38 @@
     import {exportExcel} from "@api/file"
   import {getAllRestData,agreeRestRequest,disagreeRestRequest} from '@api/rest'
   import report_dis from '../../components/report/report_distribution'
+  const timeChinese = [
+  "星期天上午",
+  "星期天下午",
+  "星期一上午",
+  "星期一下午",
+  "星期二上午",
+  "星期二下午",
+  "星期三上午",
+  "星期三下午",
+  "星期四上午",
+  "星期四下午",
+  "星期五上午",
+  "星期五下午",
+  "星期六上午",
+  "星期六下午",
+];
+const timeOptions = [
+  "sun_m",
+  "sun_a",
+  "mon_m",
+  "mon_a",
+  "tue_m",
+  "tue_a",
+  "wed_m",
+  "wed_a",
+  "thu_m",
+  "thu_a",
+  "fri_m",
+  "fri_a",
+  "sat_m",
+  "sat_a",
+];
   export default {
     components:{
       report_dis
@@ -86,7 +121,12 @@
       },
         exportExcel(id,name){
           exportExcel(id,name);
-        }
+        },
+    getChineseDate(time) {
+      for (let i = 0; i < timeOptions.length; i++) {
+        if (timeOptions[i] == time) return timeChinese[i];
+      }
+    },
     },
     computed:{
       uncheckedRest(){
