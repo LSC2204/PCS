@@ -198,9 +198,12 @@ export default {
         title:this.changeForm.title,
         image:"",
         time:this.changeForm.time,
-        board_id:this.changeForm.boardId
+        boardId:this.changeForm.boardId
       }
       change_board(f)
+      setTimeout(() => {
+        location.reload()
+      }, 1000);
     }
   },
 

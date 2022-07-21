@@ -129,7 +129,7 @@ public class ReportController {
     @ResponseBody
     @GetMapping(value = "/getall")
     public JsonResponse getall(){
-        List<Report> re= reportMapper.getall();
+        List<Report> re= reportMapper.selectList(null);
         return JsonResponse.success(re);
     }
 }

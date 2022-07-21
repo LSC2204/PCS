@@ -1,7 +1,9 @@
 package com.example.mybatisplus.model.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -48,9 +50,13 @@ public class Report extends Model<Report> {
 
     private String teacherName;
 
+    private String status;
 
+    private Boolean isOver;
 
-
+    @TableLogic
+    @TableField("is_deleted")
+    private Boolean deleted;
 
     @Override
     protected Serializable pkVal() {

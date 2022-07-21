@@ -1,6 +1,8 @@
 package com.example.mybatisplus.web.controller;
 
 import com.example.mybatisplus.mapper.BoardMapper;
+import com.example.mybatisplus.model.domain.Person;
+import com.example.mybatisplus.model.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
@@ -68,11 +70,22 @@ public class BoardController {
     */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse updateBoard(Board  board) throws Exception {
+    public JsonResponse updateBoard(@RequestBody Board  board) throws Exception {
+        System.out.println(board);
         boardService.updateById(board);
         return JsonResponse.success(null);
     }
 
+//    @ResponseBody
+//    @PostMapping(value = "/update")
+//    public JsonResponse update(@Param("title") String title,@Param("content") String content,@Param("time") String time,@Param("image") String image,@Param("boardId") int boardId){
+////        User user=userService.getById(userId);
+//        System.out.println(boardId);
+//        Board board = boardService.getById(boardId);
+//
+//        boardService.updateById(board);
+//        return JsonResponse.success("success");
+//    }
 
     /**
     * 描述:创建Board
@@ -81,6 +94,8 @@ public class BoardController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public JsonResponse create(Board  board) throws Exception {
+        System.out.println(board.getBoardId());
+        System.out.println(board.getContent());
         boardService.save(board);
         return JsonResponse.success(null);
     }
@@ -100,7 +115,7 @@ public class BoardController {
     @ResponseBody
     public JsonResponse getall() throws Exception {
         List<Board> boards=new ArrayList<>();
-        boards=boardMapper.getall();
+        boards=boardMapper.selectList(null);
         return JsonResponse.success(boards);
     }
 }

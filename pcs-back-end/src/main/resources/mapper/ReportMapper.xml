@@ -14,7 +14,7 @@
         <result column="reportTime" property="reportTime" />
         <result column="teacherName" property="teacherName" />
         <result column="userName" property="userName" />
-
+        <result column="is_deleted" property="deleted" />
 
 
     </resultMap>

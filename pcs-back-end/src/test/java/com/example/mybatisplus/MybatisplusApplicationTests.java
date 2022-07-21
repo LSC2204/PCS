@@ -1,8 +1,19 @@
 package com.example.mybatisplus;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.mybatisplus.mapper.BoardMapper;
+import com.example.mybatisplus.mapper.ReportMapper;
+import com.example.mybatisplus.model.domain.Board;
+import com.example.mybatisplus.model.domain.Report;
+import com.example.mybatisplus.service.ReportService;
+import com.example.mybatisplus.web.controller.BoardController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 class MybatisplusApplicationTests {
@@ -14,6 +25,24 @@ class MybatisplusApplicationTests {
 //        Admin byId = adminService.getById(1);
 //        System.out.println(byId);
 //    }
+
+    @Autowired
+    private ReportMapper reportMapper;
+    @Autowired
+    private BoardMapper boardMapper;
+
+    @Test
+    void hh(){
+        QueryWrapper<Report> wrapper = new QueryWrapper<>();
+        wrapper.eq("report_id","22");
+        List<Report> reportList = reportMapper.selectList(wrapper);
+    }
+
+//    @Test
+//    void hh2(){
+//        Board
+//    }
+
 
 
     @Test

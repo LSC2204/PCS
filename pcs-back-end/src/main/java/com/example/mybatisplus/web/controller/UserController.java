@@ -233,12 +233,16 @@ public class UserController {
 //        return JsonResponse.success(loginUser);
 //    }
 
-    //修改个人信息,需要传给我userId（必须），修改后的密码、地址、电话号码、邮箱(不是必须，放在请求标头）
+
     @ResponseBody
     @PostMapping(value = "/update_person")
     public JsonResponse update_person(@Param("userId") String userId,@Param("password") String password,@Param("address") String address,@Param("phoneNumber") String phoneNumber,@Param("email") String email){
        User user=userService.getById(userId);
        Person person=personService.getperson(user.getName());
+       if(password!=null){
+           if(password.length()>0)
+               user.setPassword(password);
+       }
        if(password.length()>0){
            user.setPassword(password);
        }

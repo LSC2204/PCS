@@ -9,9 +9,10 @@
         <result column="content" property="content" />
         <result column="time" property="time" />
         <result column="image" property="image" />
+        <result column="is_deleted" property="deleted" />
     </resultMap>
     <select id="getall" resultType="com.example.mybatisplus.model.domain.Board">
-        select * from board;
+        select * from board
     </select>
 
 </mapper>
