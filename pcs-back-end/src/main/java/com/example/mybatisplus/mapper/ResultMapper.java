@@ -27,5 +27,6 @@ public interface ResultMapper extends BaseMapper<Result> {
 
     List<Result> getteacher(@Param("item") String teacehr_id);
 
+    Result getone(@Param("id") Integer id);
 
 }

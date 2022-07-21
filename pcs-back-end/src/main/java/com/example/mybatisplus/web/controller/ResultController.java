@@ -64,8 +64,15 @@ public class ResultController {
     */
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse getById(@RequestBody Long id)throws Exception {
-        Result  result =  resultService.getById(id);
+    public JsonResponse getById(@RequestBody Result res)throws Exception {
+        Result  result =  resultService.getById(res.getResultId());
+        return JsonResponse.success(result);
+    }
+
+    @RequestMapping(value = "/getone", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResponse getone(@RequestBody Integer id)throws Exception {
+        Result result =  resultMapper.getone(id);
         return JsonResponse.success(result);
     }
 

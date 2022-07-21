@@ -31,9 +31,9 @@
     <select id="getteacher" resultType="com.example.mybatisplus.model.domain.Result">
         select * from result where teacher_id <![CDATA[ = ]]> '${item}';
     </select>
-    <update id="update_status">
-        update result set status <![CDATA[ = ]]> ${item1} where result_id <![CDATA[ = ]]> ${item2};
-    </update>
+    <select id="getone" resultType="com.example.mybatisplus.model.domain.Result">
+        select * from result where result_id='${id}';
+    </select>
 
 
 </mapper>
