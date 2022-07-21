@@ -1,7 +1,8 @@
 <template>
     <div>
+      <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','请假记录')">导出excel</el-button>
         <report_dis ref="report_di" />
-    <el-table
+    <el-table id="s"
             :data="uncheckedRest"
             style="width: 100%">
          <el-table-column
@@ -43,6 +44,7 @@
 <script>
   import {getMyRest,endRestRequest} from '@api/rest'
   import report_dis from '../../components/report/report_distribution'
+   import {exportExcel} from "@api/file"
   export default {
     components:{
       report_dis
@@ -72,7 +74,10 @@
           else if(num1==1) return "已通过"
           else if(num1==2) return "被驳回"
           else if(num1==0) return "未审核"
-      }
+      },
+    exportExcel(id,name){
+          exportExcel(id,name);
+        }
 
     },
     computed:{

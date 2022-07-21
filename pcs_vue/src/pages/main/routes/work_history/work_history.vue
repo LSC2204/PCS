@@ -1,6 +1,7 @@
 <template>
-
-    <el-table
+  <div> 
+       <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','工作历史')">导出excel</el-button>
+    <el-table id="s"
             :data="review"
             border
             style="width: 100%">
@@ -41,11 +42,13 @@
                 prop="reviewRemarks"
                 label="咨询备注">
         </el-table-column>
-    </el-table>
+    </el-table></div>
+   
 </template>
 
 <script>
   import {get_review_teacher} from '@api/result'
+  import {exportExcel} from "@api/file"
 const timeChinese = ["星期天上午","星期天下午","星期一上午","星期一下午","星期二上午","星期二下午","星期三上午","星期三下午","星期四上午","星期四下午","星期五上午","星期五下午","星期六上午","星期六下午"];
     const timeOptions = ["sun_m","sun_a",'mon_m', 'mon_a', 'tue_m', 'tue_a',"wed_m","wed_a","thu_m","thu_a","fri_m","fri_a","sat_m","sat_a"];
   export default {
@@ -70,6 +73,9 @@ const timeChinese = ["星期天上午","星期天下午","星期一上午","星�
             if (timeOptions[i]==time) return timeChinese[i]
       }
         },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>

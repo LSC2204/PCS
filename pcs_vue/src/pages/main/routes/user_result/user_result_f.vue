@@ -22,8 +22,9 @@
 
         <report_dis ref="report_di" />
 <!--        :style="{ color:domain.groups == 1? '#ccc': domain.groups == 2 ? '#ccc' : '' }"-->
-        <el-table
-                :data="result.filter(data => data.isFrist)"
+         <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','初访结果')">导出excel</el-button>
+        <el-table id="s"
+                :data="result.filter(data => data.isFirst)"
                 style="width: 100%">
             <el-table-column
                     width="90">
@@ -80,6 +81,7 @@
 </template>
 
 <script>
+  import {exportExcel} from "@api/file"
     import{get_result_user,give_eval} from '../../../../api/result'
    const timeChinese = ["星期天上午","星期天下午","星期一上午","星期一下午","星期二上午","星期二下午","星期三上午","星期三下午","星期四上午","星期四下午","星期五上午","星期五下午","星期六上午","星期六下午"];
     const timeOptions = ["sun_m","sun_a",'mon_m', 'mon_a', 'tue_m', 'tue_a',"wed_m","wed_a","thu_m","thu_a","fri_m","fri_a","sat_m","sat_a"];
@@ -136,7 +138,9 @@
                 res.data[i].isSuccess='已驳回'
               }
             }
+            
             this.result=res.data
+
           })
         },
       getChineseDate(time){
@@ -144,6 +148,9 @@
               if (timeOptions[i]==time) return timeChinese[i]
           }
       },
+              exportExcel(id,name){
+          exportExcel(id,name);
+        }
       }
   }
 </script>

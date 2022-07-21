@@ -1,6 +1,7 @@
 <template>
-
-    <el-table
+<div>
+  <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','历史咨询')">导出excel</el-button>
+      <el-table id="s"
             :data="report_h"
             border
             style="width: 100%"
@@ -26,10 +27,13 @@
                 label="备注">
         </el-table-column>
     </el-table>
+</div>
+
 </template>
 
 <script>
   import {rejcet,report_his} from '@api/report'
+    import {exportExcel} from "@api/file"
   export default {
     name: 'report_history',
     data() {
@@ -54,7 +58,10 @@
           return 'success-row';
           }
           return '';
-      }
+      },
+      exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>

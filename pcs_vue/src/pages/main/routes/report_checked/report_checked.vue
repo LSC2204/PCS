@@ -8,8 +8,9 @@
               size="large"
               placeholder="输入关键字搜索用户姓名"/>
         <report_dis ref="report_di" />
+        <el-button style="margin:10px 80px;float: right" size="small" type="primary" @click="exportExcel('s','已审核预约表')">导出excel</el-button>
         <el-table
-                
+                id="s"
                 :data="result.filter(data => !search || data.userName.toLowerCase().includes(search.toLowerCase()))"
                 style="width: 100%;"
                 :row-class-name="tableRowClassName"
@@ -67,6 +68,7 @@
 
 <script>
   import {get_result_all} from '@api/result'
+  import {exportExcel} from "@api/file"
 const timeChinese = ["星期天上午","星期天下午","星期一上午","星期一下午","星期二上午","星期二下午","星期三上午","星期三下午","星期四上午","星期四下午","星期五上午","星期五下午","星期六上午","星期六下午"];
     const timeOptions = ["sun_m","sun_a",'mon_m', 'mon_a', 'tue_m', 'tue_a',"wed_m","wed_a","thu_m","thu_a","fri_m","fri_a","sat_m","sat_a"];
   export default {
@@ -110,7 +112,9 @@ const timeChinese = ["星期天上午","星期天下午","星期一上午","星�
               if (timeOptions[i]==time) return timeChinese[i]
           }
       },
-
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
 
     }
   }

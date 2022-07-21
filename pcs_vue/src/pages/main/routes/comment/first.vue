@@ -1,6 +1,7 @@
 <template>
-
-    <el-table
+<div>
+       <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','初访员评分记录')">导出excel</el-button>
+            <el-table id="s"
             :data="review.filter(data=>data.isFirst==1)"
             border
             style="width: 100%">
@@ -49,9 +50,12 @@
                 label="咨询备注">
         </el-table-column>
     </el-table>
+</div>
+
 </template>
 
 <script>
+  import {exportExcel} from "@api/file"
 //目前是单个咨询师的结果，但是我想要获取到所有咨询师的，同样需要展开表格的帮助
 //TODO:需要数据进行测试  上面的is_first进行筛选
   import {get_review_teacher,get_review_all} from '@api/result'
@@ -71,7 +75,10 @@
           console.info(res)
           this.review=res.data
         })
-      }
+      },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>

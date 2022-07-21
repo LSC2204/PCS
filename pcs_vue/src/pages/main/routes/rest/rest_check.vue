@@ -1,7 +1,8 @@
 <template>
     <div>
         <report_dis ref="report_di" />
-    <el-table
+         <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','请假审核表')">导出excel</el-button>
+    <el-table id="s"
             :data="uncheckedRest"
             style="width: 100%">
          <el-table-column
@@ -52,6 +53,7 @@
 
 <script>
   import {report_check,reject} from '@api/report'
+    import {exportExcel} from "@api/file"
   import {getAllRestData,agreeRestRequest,disagreeRestRequest} from '@api/rest'
   import report_dis from '../../components/report/report_distribution'
   export default {
@@ -81,7 +83,10 @@
       handleDisagree(row) {
         disagreeRestRequest(row.noteId)
         location.reload()
-      }
+      },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     },
     computed:{
       uncheckedRest(){

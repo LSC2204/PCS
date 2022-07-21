@@ -180,8 +180,11 @@
 
     <br>
     <el-button type="primary" plain>用户信息</el-button>
+    
+    <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s1','用户信息')">导出excel</el-button>
     <br>
-    <el-table
+    
+    <el-table id="s1"
             :data="user_infor"
             border
             style="width: 100%">
@@ -224,13 +227,15 @@
     <div style="display: flex">
         <div style="flex: 1"></div>
         <el-button type="primary" @click="jump_user()">新增用户</el-button>
+
         <div style="flex: 1"></div>
     </div>
     <br>
     <br>
     <el-button type="success" plain>咨询师信息</el-button>
+            <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s2','咨询师信息')">导出excel</el-button>
     <br>
-    <el-table
+    <el-table id="s2"
             :data="tea_inf"
             border
             style="width: 100%">
@@ -282,8 +287,9 @@
 
 
 <el-button type="info" plain>初访员信息</el-button>
+<el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s3','初访员信息')">导出excel</el-button>
     <br>
-    <el-table
+    <el-table id="s3"
             :data="first_inf"
             border
             style="width: 100%">
@@ -338,6 +344,7 @@
 
 <script>
   import {user_inf,tea_inf,create,first_inf} from '@api/user'
+  import {exportExcel} from "@api/file"
   export default {
     name: 'user_inf',
     data() {
@@ -586,7 +593,10 @@
           this.first_inf=res.data
         })
 
-      }
+      },
+      exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>
