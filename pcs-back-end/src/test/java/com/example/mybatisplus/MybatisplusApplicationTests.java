@@ -6,7 +6,9 @@ import com.example.mybatisplus.mapper.BoardMapper;
 import com.example.mybatisplus.mapper.ReportMapper;
 import com.example.mybatisplus.model.domain.Board;
 import com.example.mybatisplus.model.domain.Report;
+import com.example.mybatisplus.model.domain.Result;
 import com.example.mybatisplus.service.ReportService;
+import com.example.mybatisplus.service.ResultService;
 import com.example.mybatisplus.web.controller.BoardController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +32,14 @@ class MybatisplusApplicationTests {
     private ReportMapper reportMapper;
     @Autowired
     private BoardMapper boardMapper;
+    @Autowired
+    private ResultService res;
 
     @Test
     void hh(){
-        QueryWrapper<Report> wrapper = new QueryWrapper<>();
-        wrapper.eq("report_id","22");
-        List<Report> reportList = reportMapper.selectList(wrapper);
+        QueryWrapper<Result> wrapper = new QueryWrapper<>();
+        wrapper.eq("result_id","19");
+        System.out.println(res.getOne(wrapper));
     }
 
 //    @Test

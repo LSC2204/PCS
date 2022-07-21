@@ -50,9 +50,7 @@ public class Report extends Model<Report> {
 
     private String teacherName;
 
-    private String status;
 
-    private Boolean isOver;
 
     @TableLogic
     @TableField("is_deleted")

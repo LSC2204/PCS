@@ -248,7 +248,7 @@
           console.info(res.data)
           console.info("hi")
         this.is_first=res.data.isfirst
-        this.n_is_first=!res.data.is_first
+        this.n_is_first=res.data.is_first
       this.wk=new Date().getDay()
     })
     userInfo.role=this.getRoleName

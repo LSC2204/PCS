@@ -16,6 +16,8 @@
         <result column="teacherName" property="teacherName" />
         <result column="resultTime" property="resultTime" />
         <result column="isOk" property="isOk" />
+        <result column="status" property="status" />
+
     </resultMap>
     <update id="update_isok">
         update result set is_ok <![CDATA[ = ]]> ${item1} where result_id <![CDATA[ = ]]> ${item2};
@@ -29,7 +31,9 @@
     <select id="getteacher" resultType="com.example.mybatisplus.model.domain.Result">
         select * from result where teacher_id <![CDATA[ = ]]> '${item}';
     </select>
-
+    <update id="update_status">
+        update result set status <![CDATA[ = ]]> ${item1} where result_id <![CDATA[ = ]]> ${item2};
+    </update>
 
 
 </mapper>

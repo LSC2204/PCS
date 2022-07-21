@@ -15,6 +15,7 @@
         <result column="review_score" property="reviewScore" />
         <result column="review_time" property="reviewTime" />
         <result column="result_time" property="resultTime" />
+
     </resultMap>
     <select id="getall" resultType="com.example.mybatisplus.model.domain.Review">
         select * from review;

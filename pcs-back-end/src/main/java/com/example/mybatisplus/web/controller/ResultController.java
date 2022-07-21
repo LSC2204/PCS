@@ -85,9 +85,9 @@ public class ResultController {
     * 描述：根据Id 更新
     *
     */
-    @RequestMapping(value = "/up", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse updateResult(@RequestBody Result  result) throws Exception {
+    public JsonResponse updateResult(@RequestBody Result result) throws Exception {
         resultService.updateById(result);
         return JsonResponse.success(null);
     }

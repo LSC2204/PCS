@@ -16,7 +16,6 @@
         <result column="userName" property="userName" />
         <result column="is_deleted" property="deleted" />
 
-
     </resultMap>
     <select id="getall" resultType="com.example.mybatisplus.model.domain.Report">
         select * from report;

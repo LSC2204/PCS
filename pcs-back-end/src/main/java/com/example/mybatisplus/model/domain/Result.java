@@ -54,6 +54,7 @@ public class Result extends Model<Result> {
 
     private Boolean isOk;
 
+    private String status;
 
 
     @Override
