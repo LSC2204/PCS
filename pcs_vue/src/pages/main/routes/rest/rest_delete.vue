@@ -1,7 +1,8 @@
 <template>
     <div>
         <report_dis ref="report_di" />
-    <el-table
+        <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','销假表')">导出excel</el-button>
+    <el-table id="s"
             :data="uncheckedRest"
             style="width: 100%">
          <el-table-column
@@ -48,6 +49,7 @@
 </template>
 
 <script>
+  import {exportExcel} from "@api/file"
   import {getMyRest,endRestRequest} from '@api/rest'
   import report_dis from '../../components/report/report_distribution'
   export default {
@@ -79,8 +81,10 @@
           return "未通过"
           else if(num==1) return "已通过"
           else return "被驳回"
-      }
-
+      },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     },
     computed:{
       uncheckedRest(){

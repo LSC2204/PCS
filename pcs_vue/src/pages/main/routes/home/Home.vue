@@ -33,6 +33,7 @@
           <el-card shadow="always" style="height:380px;overflow-y:auto">
               <div slot="header" class="clearfix">
                 <span>公告栏</span>
+                
                 <el-button v-if="userType==1" style="float: right; padding: 6px 15px;margin:0 20px" type="primary" @click="dialogVisible=true">增加公告</el-button>
               </div>
               <el-collapse v-model="activeName" accordion>

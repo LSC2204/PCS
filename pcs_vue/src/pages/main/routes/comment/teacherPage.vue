@@ -1,6 +1,6 @@
 <template>
-
-    <el-table
+<div><el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','用户评分')">导出excel</el-button>
+    <el-table id="s"
             :data="evalData"
             border
             style="width: 100%">
@@ -34,6 +34,8 @@
         </el-table-column>
 
     </el-table>
+</div>
+
 </template>
 
 <script>
@@ -42,7 +44,10 @@ const timeChinese = ["星期天上午","星期天下午","星期一上午","星�
     import {review,get_teacher} from '@api/teacher_inf'
     import {give_eval_by_name} from '@api/result'
     import {getAllPerson} from "@api/user"
+      import {exportExcel} from "@api/file"
+      //复制三步走:1.按钮2.引用3.函数 4.改名
     //获取allperson
+    
     export default {
         data() {
             return {
@@ -88,6 +93,9 @@ const timeChinese = ["星期天上午","星期天下午","星期一上午","星�
               if (timeOptions[i]==time) return timeChinese[i]
           }
         },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
 }
 </script>

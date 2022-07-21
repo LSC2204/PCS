@@ -9,7 +9,17 @@
             <el-form >
                 <el-form-item style="width:200px" label="给用户咨询状况打分" prop="score">
                     <el-input v-model.number="score"></el-input>
-                </el-form-item> 
+                </el-form-item>
+                <el-form-item style="width:200px" label="用户心理问题分类" prop="" v-if="userType==4">
+                      <el-select v-model="des0" placeholder="请选择">
+                                <el-option 
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                                </el-option>
+                        </el-select>
+                </el-form-item>
                 <el-form-item style="width:550px" label="咨询详情" prop="des">
                     <el-input type="textarea" v-model="des"></el-input>
                 </el-form-item>
@@ -19,10 +29,10 @@
             <el-button type="primary" @click="give_inf()">提 交</el-button>
           </span>
         </el-dialog>
-
+<el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','工作安排')">导出excel</el-button>
 <!--        <report_dis ref="report_di" />-->
         <!--        :style="{ color:domain.groups == 1? '#ccc': domain.groups == 2 ? '#ccc' : '' }"-->
-        <el-table
+        <el-table id="s"
                 :data="result1"
                 :row-class-name="tableRowClassName"
                 style="width: 100%">
@@ -324,6 +334,8 @@
 </template>
 
 <script>
+  import {exportExcel} from "@api/file"
+  import {mapGetters} from 'vuex'
   import{get_result_teacher,get_ft_teacher,give_rev} from '../../../../api/result'
   import {user_inf,tea_inf,create,first_inf} from '@api/user'
  const timeChinese = ["星期天上午","星期天下午","星期一上午","星期一下午","星期二上午","星期二下午","星期三上午","星期三下午","星期四上午","星期四下午","星期五上午","星期五下午","星期六上午","星期六下午"];
@@ -339,7 +351,24 @@
         id_exchange: 1,
         score:0,
         des: '',
-        userData:[]
+        userData:[],
+        des0:"",
+         options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
       }
     },
     created () {
@@ -370,13 +399,18 @@
         let re = {
           resultId: this.id_exchange,
           score: this.score.valueOf(),
-          fellings: this.des
+          fellings: this.get_fellings(this.des0,this.des)
         }
         give_rev(re)
         this.dialogVisible = false
           location.reload()
       },
-
+      get_fellings(dex0,des){
+              if(dex0==""){
+                      return des
+              }
+              else return  "心理问题初步诊断为："+this.des0+"     "+this.des
+      },
       handleClose (done) {
         this.$confirm('确认关闭？')
           .then(_ => {
@@ -424,6 +458,17 @@
         user_inf(){
 
       },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
+    },
+    computed:{
+            ...mapGetters({
+              userType: 'user/getUserType',
+              userName: 'user/getUserName',
+              getRoleName: 'role/getRoleName',
+              getSidebarTheme: 'sidebar/getSidebarTheme'
+            }),
     }
   }
 

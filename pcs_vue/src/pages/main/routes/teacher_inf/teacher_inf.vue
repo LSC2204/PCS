@@ -1,6 +1,8 @@
 <template>
-
-    <el-table
+<div>
+   <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','咨询师列表')">导出excel</el-button>
+      <el-table
+      id="s"
             :data="teacher_infor"
             border
             style="width: 100%">
@@ -24,10 +26,13 @@
                 label="电话号码">
         </el-table-column>
     </el-table>
+</div>
+
 </template>
 
 <script>
   import {teacher_inf} from '@api/teacher_inf'
+  import {exportExcel} from "@api/file"
   export default {
     name: 'teacher_inf',
     data() {
@@ -44,7 +49,10 @@
           console.info(res)
           this.teacher_infor=res.data
         })
-      }
+      },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>

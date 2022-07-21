@@ -8,8 +8,8 @@
               v-model="search"
               size="large"
               placeholder="输入关键字搜索用户姓名"/>
-              
-    <el-table
+<el-button style="margin:10px 80px;float: right" size="small" type="primary" @click="exportExcel('s','待审核预约表')">导出excel</el-button>
+    <el-table id="s"
             :data="report_cha.filter(data => !search || data.userName.toLowerCase().includes(search.toLowerCase()))"
             style="width: 100%"
             :row-class-name="tableRowClassName"
@@ -77,6 +77,7 @@
 </template>
 
 <script>
+  import {exportExcel} from "@api/file"
   import {report_check,reject} from '@api/report'
   import {teacher_name} from '@api/teacher_inf'
   import {getAllPerson} from '@api/user'
@@ -155,7 +156,10 @@
           return 'success-row';
           }
           return '';
-      }
+      },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
     }
   }
 </script>

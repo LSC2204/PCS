@@ -1,5 +1,6 @@
 <template>
 <div>
+    <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','用户评分记录')">导出excel</el-button>
 <!-- <el-table
             :data="userData"
             border
@@ -64,7 +65,7 @@
                 width="180">
         </el-table-column>
     </el-table> -->
-        <el-table
+        <el-table id="s"
             :data="evaData"
             
             style="width: 100%">
@@ -113,9 +114,9 @@
 //外面的表进行获取所有user的id信息，里面的表获取id==该id的信息
 //发现能直接获取用户接口
 //根据用户name获取对应的eva
-//TODO： 这里问题最多拉
     import {get_all_person} from '@api/teacher_inf'
     import {user_inf,getAllPerson} from  '@api/user'
+    import {exportExcel} from "@api/file"
     const timeChinese = ["星期天上午","星期天下午","星期一上午","星期一下午","星期二上午","星期二下午","星期三上午","星期三下午","星期四上午","星期四下午","星期五上午","星期五下午","星期六上午","星期六下午"];
     const timeOptions = ["sun_m","sun_a",'mon_m', 'mon_a', 'tue_m', 'tue_a',"wed_m","wed_a","thu_m","thu_a","fri_m","fri_a","sat_m","sat_a"];
     export default {
@@ -158,7 +159,10 @@
           return 'success-row';
         }
         return '';
-            }
+            },
+        exportExcel(id,name){
+          exportExcel(id,name);
+        }
         },
         computed:{
             userNames(){
