@@ -1,16 +1,16 @@
 <template>
 
     <div>
-        <el-dialog
+              <el-dialog
                         title="提示"
-                        :visible.sync="dialogVisible"
+                        :visible.sync="eightDialogVisible"
                         width="40%"
                         :before-close="handleClose">
             <el-form >
-            <el-form-item style="width:100px" label="给初访员打分" prop="score">
+            <el-form-item style="width:100px" label="给咨询师打分" prop="score">
                 <el-input v-model.number="score"></el-input>
             </el-form-item>
-            <el-form-item style="width:550px" label="初访详情" prop="des">
+            <el-form-item style="width:550px" label="咨询详情" prop="des">
                 <el-input type="textarea" v-model="des"></el-input>
             </el-form-item>
             </el-form>
@@ -19,12 +19,29 @@
             <el-button type="primary" @click="give_inf()">提 交</el-button>
           </span>
         </el-dialog>
-
+        <el-dialog
+                        title="提示"
+                        :visible.sync="dialogVisible"
+                        width="40%"
+                        :before-close="handleClose">
+            <el-form >
+            <el-form-item style="width:100px" label="给咨询师打分" prop="score">
+                <el-input v-model.number="score"></el-input>
+            </el-form-item>
+            <el-form-item style="width:550px" label="咨询详情" prop="des">
+                <el-input type="textarea" v-model="des"></el-input>
+            </el-form-item>
+            </el-form>
+                    <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="give_inf()">提 交</el-button>
+          </span>
+        </el-dialog>
+<el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','预约结果')">导出excel</el-button>
         <report_dis ref="report_di" />
 <!--        :style="{ color:domain.groups == 1? '#ccc': domain.groups == 2 ? '#ccc' : '' }"-->
-         <el-button style="margin:10px 10px" size="small" type="primary" @click="exportExcel('s','初访结果')">导出excel</el-button>
         <el-table id="s"
-                :data="result.filter(data => !data.isFirst)"
+                :data="result.filter(data => data.isFirst)"
                 style="width: 100%">
             <el-table-column
                     width="90">
@@ -47,7 +64,7 @@
                     width="240">
             </el-table-column>
             <el-table-column
-                    label="分配初访员"
+                    label="分配咨询师"
                     prop="teacherName"
                     width="120">
             </el-table-column>
@@ -93,7 +110,8 @@
           result:[],
           id_exchange:1,
           score:1,
-          des:''
+          des:'',
+          eightDialogVisible
         }
       },
       created(){
@@ -138,9 +156,8 @@
                 res.data[i].isSuccess='已驳回'
               }
             }
-            
             this.result=res.data
-
+            
           })
         },
       getChineseDate(time){
@@ -148,7 +165,7 @@
               if (timeOptions[i]==time) return timeChinese[i]
           }
       },
-              exportExcel(id,name){
+        exportExcel(id,name){
           exportExcel(id,name);
         }
       }
