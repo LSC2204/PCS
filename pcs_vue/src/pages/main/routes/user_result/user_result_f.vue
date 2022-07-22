@@ -66,7 +66,7 @@
                     <el-button v-if="scope.row.isSuccess=='已分配'&&scope.row.isOk==true"
                                size="mini"
                                type="success"
-                                @click="jumpout(scope.row.resultId)">咨询完成，填写咨询报告</el-button>
+                                @click="jumpout(scope.row.resultId)">，填写咨询报告</el-button>
                     <el-button v-if="scope.row.isSuccess=='已驳回'"
                                size="mini"
                                type="danger"

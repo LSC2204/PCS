@@ -56,6 +56,10 @@ public class Result extends Model<Result> {
 
     private String status;
 
+    @TableLogic
+    @TableField("is_deleted")
+    private Boolean deleted;
+
 
     @Override
     protected Serializable pkVal() {

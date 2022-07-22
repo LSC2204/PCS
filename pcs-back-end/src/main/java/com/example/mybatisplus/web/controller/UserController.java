@@ -239,6 +239,7 @@ public class UserController {
     public JsonResponse update_person(@Param("userId") String userId,@Param("password") String password,@Param("address") String address,@Param("phoneNumber") String phoneNumber,@Param("email") String email){
        User user=userService.getById(userId);
        Person person=personService.getperson(user.getName());
+
        if(password!=null){
            if(password.length()>0)
                user.setPassword(password);

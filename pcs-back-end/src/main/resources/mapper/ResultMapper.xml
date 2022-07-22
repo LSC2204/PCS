@@ -17,6 +17,7 @@
         <result column="resultTime" property="resultTime" />
         <result column="isOk" property="isOk" />
         <result column="status" property="status" />
+        <result column="is_deleted" property="deleted" />
 
     </resultMap>
     <update id="update_isok">

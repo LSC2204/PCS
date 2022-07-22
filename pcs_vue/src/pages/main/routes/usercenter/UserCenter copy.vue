@@ -210,12 +210,13 @@ export default {
     handleSubmitPwd(){
       this.pwdFormVisible = false
       submitUserPwd(this.form,this.userInfo)
+      this.$router.push({name: 'main'})
     },
     handleSubmitBasic(){
       this.pwdFormVisible = false
       submitUserBasic(this.userInfo)
       //修改成功后需要跳转页面，不考虑修改失败
-      this.$router.push(route)
+      this.$router.push({name: 'main/usercenter'})
     }
   },
   computed: {

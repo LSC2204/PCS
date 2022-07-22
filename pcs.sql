@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2022-07-22 01:20:33
+Date: 2022-07-22 23:11:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `board` (
   `image` varchar(100) DEFAULT NULL,
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`board_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of board
@@ -39,7 +39,8 @@ INSERT INTO `board` VALUES ('4', 'dfxgcfhgjk', 'ufcgfcgfxffzsgeewzewz', '2022-07
 INSERT INTO `board` VALUES ('5', '及环境共和国', '物质上的消防车GV黄柏胶囊卡马拉', '2022-07-21 17:12:34 下午', '', '1');
 INSERT INTO `board` VALUES ('6', '按时吃上饭蛋糕房', '爱车SV三百多给你发货没加本', '2022-07-21 19:10:50 下午', '', '1');
 INSERT INTO `board` VALUES ('7', '测试', '你好，很高兴认识您', '2022-07-21 19:16:18 下午', '', '0');
-INSERT INTO `board` VALUES ('8', '欢迎来到心灵驿站', '不与自己对抗，你就会更强大。', '2022-07-21 22:04:07 下午', '', '0');
+INSERT INTO `board` VALUES ('8', '欢迎来到心灵驿站', '不与自己对抗，你就会更强大。卢老师您好很高兴认识您', '2022-07-21 22:04:07 下午', '', '0');
+INSERT INTO `board` VALUES ('9', '欢迎卢老师莅临项目组指导', '卢老师你还好吗', '2022-07-22 22:34:26 下午', '', '1');
 
 -- ----------------------------
 -- Table structure for enpity
@@ -73,8 +74,8 @@ CREATE TABLE `enpity` (
 INSERT INTO `enpity` VALUES ('5', 't2', '陆', '3', '0', '1', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
 INSERT INTO `enpity` VALUES ('6', 't3', '李松宸', '3', '2', '0', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
 INSERT INTO `enpity` VALUES ('7', 't1', '张', '3', '3', '3', '0', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
-INSERT INTO `enpity` VALUES ('8', 'cfy2', '陈奥博', '4', '0', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
-INSERT INTO `enpity` VALUES ('9', 'cfy', '彭于晏', '4', '1', '0', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
+INSERT INTO `enpity` VALUES ('8', 'cfy2', '陈奥博', '4', '0', '2', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
+INSERT INTO `enpity` VALUES ('9', 'cfy', '彭于晏', '4', '1', '0', '2', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3');
 
 -- ----------------------------
 -- Table structure for evaluation
@@ -90,7 +91,7 @@ CREATE TABLE `evaluation` (
   `evaluation_time` varchar(40) DEFAULT NULL,
   `result_time` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`evaluation_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='评价表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='评价表';
 
 -- ----------------------------
 -- Records of evaluation
@@ -101,6 +102,12 @@ INSERT INTO `evaluation` VALUES ('3', 'st1', '张', 'mon_m', 'sadfsadgfadsgagasd
 INSERT INTO `evaluation` VALUES ('4', '14', '张', 'mon_a', 'asdsdfghjhjk', '1', '2022-07-21 12:02:18 下午', '2022-07-21 12:00:34 下午');
 INSERT INTO `evaluation` VALUES ('5', 'st22', '陈奥博', 'mon_a', 'henhao', '10', '2022-07-21 19:50:22 下午', '2022-07-21 19:44:59 下午');
 INSERT INTO `evaluation` VALUES ('6', 'st22', '陈奥博', 'mon_a', 'acdsvf', '1', '2022-07-21 19:50:41 下午', '2022-07-21 19:44:59 下午');
+INSERT INTO `evaluation` VALUES ('7', 'st77', '陈奥博', 'mon_a', '真好啊', '100', '2022-07-22 14:17:18 下午', '2022-07-22 14:15:51 下午');
+INSERT INTO `evaluation` VALUES ('8', 'st77', '陈奥博', 'mon_a', '真好啊', '1', '2022-07-22 14:17:29 下午', '2022-07-22 14:15:51 下午');
+INSERT INTO `evaluation` VALUES ('9', 'st21', '陈奥博', 'tue_m', 'very good!', '100', '2022-07-22 14:50:35 下午', '2022-07-22 14:49:19 下午');
+INSERT INTO `evaluation` VALUES ('10', 'st21', '陈奥博', 'tue_m', '', '1', '2022-07-22 14:55:47 下午', '2022-07-22 14:49:19 下午');
+INSERT INTO `evaluation` VALUES ('11', 'st2204', '陈奥博', 'tue_a', '默认好评', '100', '2022-07-22 17:20:29 下午', '2022-07-22 17:15:36 下午');
+INSERT INTO `evaluation` VALUES ('12', 'st2204', '陆', 'mon_a', 'sad', '1', '2022-07-22 23:02:27 下午', '2022-07-22 17:19:09 下午');
 
 -- ----------------------------
 -- Table structure for note
@@ -139,14 +146,14 @@ CREATE TABLE `person` (
   `address` varchar(20) DEFAULT NULL,
   `isfirst` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='个人信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='个人信息表';
 
 -- ----------------------------
 -- Records of person
 -- ----------------------------
 INSERT INTO `person` VALUES ('1', 't1', '张', '2000-01-01', '男', '15585555', '1-109', '0');
 INSERT INTO `person` VALUES ('2', 't2', '陆', '1999-02-06', '女', '16580287333', '1-102', '0');
-INSERT INTO `person` VALUES ('4', 'admin', '陆博遥', '1989-08-09', '女', '15213318526', '1-109', '0');
+INSERT INTO `person` VALUES ('4', 'admin', '陆博遥', '1989-08-09', '女', '15213318521161', '1-10911', '0');
 INSERT INTO `person` VALUES ('5', 'cfy2', '陈奥博', '1995-09-12', '男', '13328644358', '1-109', '0');
 INSERT INTO `person` VALUES ('6', 't3', '李松宸', '1998-07-23', '男', '18578483885', '1-102', '0');
 INSERT INTO `person` VALUES ('7', 'cfy', '彭于晏', '1989-06-05', '男', '18870481311', '1-118', '0');
@@ -164,6 +171,11 @@ INSERT INTO `person` VALUES ('19', '15', '李松', '2002-06-19', '男', '1235156
 INSERT INTO `person` VALUES ('20', '16', '彭', '1999-01-08', '男', '1316165135', '未设置地址', '1');
 INSERT INTO `person` VALUES ('21', 'st22', 'peng', '2001-07-04', '男', '68164616546', '未设置地址', '0');
 INSERT INTO `person` VALUES ('22', 'st24', '李四', '2006-07-13', '男', '1234651658', '未设置地址', '1');
+INSERT INTO `person` VALUES ('23', 'st01', '李松松', '2000-07-14', '男', '13256131353', '未设置地址', '1');
+INSERT INTO `person` VALUES ('24', 'st07', 'Wayne', '2013-07-10', '男', '15236525855', '未设置地址', '1');
+INSERT INTO `person` VALUES ('25', 'st77', 'bruce', '2009-07-14', '男', '32196651656', '未设置地址', '1');
+INSERT INTO `person` VALUES ('26', 'st21', 'bw', '2002-07-10', '男', '13215668855', '未设置地址', '0');
+INSERT INTO `person` VALUES ('27', 'st2204', 'bruceWayne', '2022-06-27', '男', '555526542222', '1-105', '0');
 
 -- ----------------------------
 -- Table structure for problem
@@ -203,7 +215,7 @@ CREATE TABLE `report` (
   `report_time` varchar(40) DEFAULT NULL,
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`report_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='报告表';
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='报告表';
 
 -- ----------------------------
 -- Records of report
@@ -221,6 +233,13 @@ INSERT INTO `report` VALUES ('23', '15', '李松宸', null, '', '星期天下午
 INSERT INTO `report` VALUES ('24', '15', '李松宸', null, '', '星期天上午;星期天下午', '1', '我心里很难受 想紫砂', '24', '2022-07-21 19:34:35 下午', '0');
 INSERT INTO `report` VALUES ('25', 'st22', 'peng', null, '', '星期天下午;星期三下午', '1', '', '12', '2022-07-21 19:44:10 下午', '1');
 INSERT INTO `report` VALUES ('26', 'st22', 'peng', 't1', '张', '星期天上午;星期天下午', '0', 'dacdsvfd', '0', '2022-07-21 19:48:11 下午', '1');
+INSERT INTO `report` VALUES ('27', 'st01', '李松松', null, '', '星期天上午;星期天下午', '1', '', '96', '2022-07-22 12:36:04 下午', '1');
+INSERT INTO `report` VALUES ('28', 'st07', 'Wayne', null, '', '星期天上午;星期三上午', '1', 'I feel sick.', '18', '2022-07-22 13:14:00 下午', '1');
+INSERT INTO `report` VALUES ('29', 'st77', 'bruce', null, '', '星期天上午;星期三上午', '1', '哎 好舍不得结束实训啊', '24', '2022-07-22 14:15:17 下午', '1');
+INSERT INTO `report` VALUES ('30', 'st21', 'bw', null, '', '星期天上午;星期三上午', '1', '舍不得卢老师', '3', '2022-07-22 14:48:52 下午', '1');
+INSERT INTO `report` VALUES ('31', 'st21', 'bw', 't3', '李松宸', '星期天上午;星期三上午', '0', 'I have some emotion issues ', '0', '2022-07-22 14:51:01 下午', '1');
+INSERT INTO `report` VALUES ('32', 'st2204', 'bruceWayne', null, '', '星期天上午;星期三上午', '1', '', '3', '2022-07-22 17:15:15 下午', '1');
+INSERT INTO `report` VALUES ('33', 'st2204', 'bruceWayne', 't2', '陆', '星期天上午;星期三上午', '0', '他说我差点意思', '0', '2022-07-22 17:17:09 下午', '1');
 
 -- ----------------------------
 -- Table structure for result
@@ -240,31 +259,39 @@ CREATE TABLE `result` (
   `teacher_name` varchar(20) DEFAULT NULL,
   `is_ok` tinyint(1) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
+  `is_deleted` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`result_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='预约结果表';
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='预约结果表';
 
 -- ----------------------------
 -- Records of result
 -- ----------------------------
-INSERT INTO `result` VALUES ('1', '2022-07-16 16:57:38 下午', 'st1', 'mon_a', '69', 'cfy2', '0', '', '1', '测试学生', '陈奥博', '1', null);
-INSERT INTO `result` VALUES ('2', '2022-07-16 17:08:16 下午', 'st1', 'mon_m', '87', 't3', '1', '', '1', '测试学生', '李松宸', '0', null);
-INSERT INTO `result` VALUES ('3', '2022-07-16 17:25:08 下午', 'st1', 'mon_m', '0', 't3', '1', '我有点想紫砂', '1', '测试学生', '李松宸', '1', null);
-INSERT INTO `result` VALUES ('4', '2022-07-16 20:41:07 下午', 'st1', null, '0', null, '1', '我有点想紫砂', '0', '测试学生', null, '0', null);
-INSERT INTO `result` VALUES ('5', '2022-07-16 21:12:46 下午', 'st1', 'mon_m', '9', 'cfy', '0', '', '1', '测试学生', '彭于晏', '0', null);
-INSERT INTO `result` VALUES ('6', '2022-07-16 22:02:39 下午', 'st1', 'mon_m', '12', 'cfy', '0', '', '1', '测试学生', '彭于晏', '0', null);
-INSERT INTO `result` VALUES ('7', '2022-07-17 15:13:47 下午', 'st1', 'mon_m', '3', 't1', '0', '', '1', '测试学生', '张', '1', null);
-INSERT INTO `result` VALUES ('8', '2022-07-17 15:44:26 下午', 'st1', 'mon_m', '6', 't1', '0', '', '1', '测试学生', '张', '1', null);
-INSERT INTO `result` VALUES ('9', '2022-07-17 20:43:53 下午', 'st2', 'tue_a', '3', 'cfy2', '1', '你好我好', '1', '测试学生2', '陈奥博', '1', null);
-INSERT INTO `result` VALUES ('10', '2022-07-17 20:50:49 下午', 'st2', 'wed_m', '0', 'cfy2', '1', '1111', '1', '测试学生2', '陈奥博', '1', null);
-INSERT INTO `result` VALUES ('11', '2022-07-21 11:36:31 上午', 'st1', null, '0', null, '0', '你好', '0', 'st1', null, '0', null);
-INSERT INTO `result` VALUES ('12', '2022-07-21 11:37:37 上午', 'st1', null, '0', null, '0', '阿斯顿发射点', '0', 'st1', null, '0', null);
-INSERT INTO `result` VALUES ('13', '2022-07-21 11:44:36 上午', 'st1', null, '0', null, '0', '进行通过测试', '0', 'st1', null, '0', null);
-INSERT INTO `result` VALUES ('14', '2022-07-21 11:46:35 上午', 'st1', 'mon_a', '0', 't2', '0', '好的', '1', '测试学生', '陆', '0', null);
-INSERT INTO `result` VALUES ('15', '2022-07-21 11:56:48 上午', '14', 'mon_a', '18', 'cfy2', '1', '很难受', '1', 'st14', '陈奥博', '1', null);
-INSERT INTO `result` VALUES ('16', '2022-07-21 12:00:34 下午', '14', 'mon_a', '0', 't1', '0', 'lkjhgtfdsdfvgbhnjmk', '1', 'st14', '张', '1', null);
-INSERT INTO `result` VALUES ('17', '2022-07-21 19:44:59 下午', 'st22', 'mon_a', '12', 'cfy2', '1', '', '1', 'peng', '陈奥博', '1', null);
-INSERT INTO `result` VALUES ('18', '2022-07-21 19:49:02 下午', 'st22', 'mon_m', '0', 't1', '0', 'dacdsvfd', '1', 'peng', '张', '1', null);
-INSERT INTO `result` VALUES ('19', '2022-07-22 00:26:40 上午', 'st1', 'mon_a', '0', 't2', '0', '第二次测试', '1', '测试学生', '陆', '0', '1101');
+INSERT INTO `result` VALUES ('1', '2022-07-16 16:57:38 下午', 'st1', 'mon_a', '69', 'cfy2', '0', '', '1', '测试学生', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('2', '2022-07-16 17:08:16 下午', 'st1', 'mon_m', '87', 't3', '1', '', '1', '测试学生', '李松宸', '0', null, '0');
+INSERT INTO `result` VALUES ('3', '2022-07-16 17:25:08 下午', 'st1', 'mon_m', '0', 't3', '1', '我有点想紫砂', '1', '测试学生', '李松宸', '1', null, '0');
+INSERT INTO `result` VALUES ('4', '2022-07-16 20:41:07 下午', 'st1', null, '0', null, '1', '我有点想紫砂', '0', '测试学生', null, '0', null, '0');
+INSERT INTO `result` VALUES ('5', '2022-07-16 21:12:46 下午', 'st1', 'mon_m', '9', 'cfy', '0', '', '1', '测试学生', '彭于晏', '0', null, '0');
+INSERT INTO `result` VALUES ('6', '2022-07-16 22:02:39 下午', 'st1', 'mon_m', '12', 'cfy', '0', '', '1', '测试学生', '彭于晏', '0', null, '0');
+INSERT INTO `result` VALUES ('7', '2022-07-17 15:13:47 下午', 'st1', 'mon_m', '3', 't1', '0', '', '1', '测试学生', '张', '1', null, '0');
+INSERT INTO `result` VALUES ('8', '2022-07-17 15:44:26 下午', 'st1', 'mon_m', '6', 't1', '0', '', '1', '测试学生', '张', '1', null, '0');
+INSERT INTO `result` VALUES ('9', '2022-07-17 20:43:53 下午', 'st2', 'tue_a', '3', 'cfy2', '1', '你好我好', '1', '测试学生2', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('10', '2022-07-17 20:50:49 下午', 'st2', 'wed_m', '0', 'cfy2', '1', '1111', '1', '测试学生2', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('11', '2022-07-21 11:36:31 上午', 'st1', null, '0', null, '0', '你好', '0', 'st1', null, '0', null, '0');
+INSERT INTO `result` VALUES ('12', '2022-07-21 11:37:37 上午', 'st1', null, '0', null, '0', '阿斯顿发射点', '0', 'st1', null, '0', null, '0');
+INSERT INTO `result` VALUES ('13', '2022-07-21 11:44:36 上午', 'st1', null, '0', null, '0', '进行通过测试', '0', 'st1', null, '0', null, '0');
+INSERT INTO `result` VALUES ('14', '2022-07-21 11:46:35 上午', 'st1', 'mon_a', '0', 't2', '0', '好的', '1', '测试学生', '陆', '0', null, '0');
+INSERT INTO `result` VALUES ('15', '2022-07-21 11:56:48 上午', '14', 'mon_a', '18', 'cfy2', '1', '很难受', '1', 'st14', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('16', '2022-07-21 12:00:34 下午', '14', 'mon_a', '0', 't1', '0', 'lkjhgtfdsdfvgbhnjmk', '1', 'st14', '张', '1', null, '0');
+INSERT INTO `result` VALUES ('17', '2022-07-21 19:44:59 下午', 'st22', 'mon_a', '12', 'cfy2', '1', '', '1', 'peng', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('18', '2022-07-21 19:49:02 下午', 'st22', 'mon_m', '0', 't1', '0', 'dacdsvfd', '1', 'peng', '张', '1', null, '0');
+INSERT INTO `result` VALUES ('19', '2022-07-22 00:26:40 上午', 'st1', 'mon_a', '0', 't2', '0', '第二次测试', '1', '测试学生', '陆', '0', '11012', '0');
+INSERT INTO `result` VALUES ('20', '2022-07-22 12:36:37 下午', 'st01', 'mon_a', '96', 'cfy2', '1', '', '1', '李松宸', '陈奥博', '0', null, '0');
+INSERT INTO `result` VALUES ('21', '2022-07-22 13:14:30 下午', 'st07', 'tue_m', '18', 'cfy', '1', 'I feel sick.', '1', 'Wayne', '彭于晏', '0', null, '0');
+INSERT INTO `result` VALUES ('22', '2022-07-22 14:15:51 下午', 'st77', 'mon_a', '24', 'cfy2', '1', '哎 好舍不得结束实训啊', '1', 'bruce', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('23', '2022-07-22 14:49:19 下午', 'st21', 'tue_m', '3', 'cfy2', '1', '舍不得卢老师', '1', 'bw', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('24', '2022-07-22 14:51:14 下午', 'st21', 'wed_m', '0', 't3', '0', 'I have some emotion issues ', '1', 'bw', '李松宸', '1', '122112111', '0');
+INSERT INTO `result` VALUES ('25', '2022-07-22 17:15:36 下午', 'st2204', 'tue_a', '3', 'cfy2', '1', '', '1', 'bruceWayne', '陈奥博', '1', null, '0');
+INSERT INTO `result` VALUES ('26', '2022-07-22 17:19:09 下午', 'st2204', 'mon_a', '0', 't2', '0', '他说我差点意思', '1', 'bruceWayne', '陆', '1', '211', '0');
 
 -- ----------------------------
 -- Table structure for review
@@ -282,24 +309,27 @@ CREATE TABLE `review` (
   `review_score` int(11) DEFAULT NULL,
   `review_time` varchar(40) DEFAULT NULL,
   `result_time` varchar(40) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `is_over` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`review_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='预约审核表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='预约审核表';
 
 -- ----------------------------
 -- Records of review
 -- ----------------------------
-INSERT INTO `review` VALUES ('1', 'st1', '测试学生', 'mon_a', '1', 'cfy2', '陈奥博', '他想紫砂', '38', '2022-07-16 17:04:17 下午', '2022-07-16 16:57:38 下午', null, null);
-INSERT INTO `review` VALUES ('2', 'st1', '测试学生', 'mon_m', '0', 't3', '李松宸', '他不想紫砂了', '95', '2022-07-16 17:27:47 下午', '2022-07-16 17:25:08 下午', null, null);
-INSERT INTO `review` VALUES ('3', 'st1', '测试学生', 'mon_m', '0', 't1', '张', '非常好', '90', '2022-07-17 15:41:31 下午', '2022-07-17 15:13:47 下午', null, null);
-INSERT INTO `review` VALUES ('4', 'st2', '测试学生2', 'tue_a', '1', 'cfy2', '陈奥博', '病得不轻', '60', '2022-07-17 20:48:42 下午', '2022-07-17 20:43:53 下午', null, null);
-INSERT INTO `review` VALUES ('5', 'st2', '测试学生2', 'wed_m', '0', 'cfy2', '陈奥博', '123456', '90', '2022-07-17 20:51:07 下午', '2022-07-17 20:50:49 下午', null, null);
-INSERT INTO `review` VALUES ('6', '14', 'st14', 'mon_a', '1', 'cfy2', '陈奥博', '他是曼联球迷 所以有点难受 需要关照', '14', '2022-07-21 11:58:42 上午', '2022-07-21 11:56:48 上午', null, null);
-INSERT INTO `review` VALUES ('7', '14', 'st14', 'mon_a', '0', 't1', '张', '阿森纳的身份和v', '91', '2022-07-21 12:01:26 下午', '2022-07-21 12:00:34 下午', null, null);
-INSERT INTO `review` VALUES ('8', 'st22', 'peng', 'mon_a', '1', 'cfy2', '陈奥博', '心理问题初步诊断为：选项2     哎', '60', '2022-07-21 19:47:09 下午', '2022-07-21 19:44:59 下午', null, null);
-INSERT INTO `review` VALUES ('9', 'st22', 'peng', 'mon_m', '0', 't1', '张', 'haixing', '100', '2022-07-21 19:51:12 下午', '2022-07-21 19:49:02 下午', null, null);
-INSERT INTO `review` VALUES ('10', 'st1', '测试学生', 'mon_m', '1', 't1', '张', 'ascdsvf', '12', '2022-07-22 00:18:07 上午', '2022-07-17 15:44:26 下午', null, null);
+INSERT INTO `review` VALUES ('1', 'st1', '测试学生', 'mon_a', '1', 'cfy2', '陈奥博', '他想紫砂', '38', '2022-07-16 17:04:17 下午', '2022-07-16 16:57:38 下午');
+INSERT INTO `review` VALUES ('2', 'st1', '测试学生', 'mon_m', '0', 't3', '李松宸', '他不想紫砂了', '95', '2022-07-16 17:27:47 下午', '2022-07-16 17:25:08 下午');
+INSERT INTO `review` VALUES ('3', 'st1', '测试学生', 'mon_m', '0', 't1', '张', '非常好', '90', '2022-07-17 15:41:31 下午', '2022-07-17 15:13:47 下午');
+INSERT INTO `review` VALUES ('4', 'st2', '测试学生2', 'tue_a', '1', 'cfy2', '陈奥博', '病得不轻', '60', '2022-07-17 20:48:42 下午', '2022-07-17 20:43:53 下午');
+INSERT INTO `review` VALUES ('5', 'st2', '测试学生2', 'wed_m', '0', 'cfy2', '陈奥博', '123456', '90', '2022-07-17 20:51:07 下午', '2022-07-17 20:50:49 下午');
+INSERT INTO `review` VALUES ('6', '14', 'st14', 'mon_a', '1', 'cfy2', '陈奥博', '他是曼联球迷 所以有点难受 需要关照', '14', '2022-07-21 11:58:42 上午', '2022-07-21 11:56:48 上午');
+INSERT INTO `review` VALUES ('7', '14', 'st14', 'mon_a', '0', 't1', '张', '阿森纳的身份和v', '91', '2022-07-21 12:01:26 下午', '2022-07-21 12:00:34 下午');
+INSERT INTO `review` VALUES ('8', 'st22', 'peng', 'mon_a', '1', 'cfy2', '陈奥博', '心理问题初步诊断为：选项2     哎', '60', '2022-07-21 19:47:09 下午', '2022-07-21 19:44:59 下午');
+INSERT INTO `review` VALUES ('9', 'st22', 'peng', 'mon_m', '0', 't1', '张', 'haixing', '100', '2022-07-21 19:51:12 下午', '2022-07-21 19:49:02 下午');
+INSERT INTO `review` VALUES ('10', 'st1', '测试学生', 'mon_m', '1', 't1', '张', 'ascdsvf', '12', '2022-07-22 00:18:07 上午', '2022-07-17 15:44:26 下午');
+INSERT INTO `review` VALUES ('11', 'st77', 'bruce', 'mon_a', '0', 'cfy2', '陈奥博', '心理问题初步诊断为：情感障碍     我也舍不得结束实训', '99', '2022-07-22 14:16:28 下午', '2022-07-22 14:15:51 下午');
+INSERT INTO `review` VALUES ('12', 'st21', 'bw', 'tue_m', '1', 'cfy2', '陈奥博', '心理问题初步诊断为：情感障碍     我也有点舍不得', '50', '2022-07-22 14:49:44 下午', '2022-07-22 14:49:19 下午');
+INSERT INTO `review` VALUES ('13', 'st21', 'bw', 'wed_m', '0', 't3', '李松宸', '他不会舍不得卢老师了', '90', '2022-07-22 14:52:59 下午', '2022-07-22 14:51:14 下午');
+INSERT INTO `review` VALUES ('14', 'st2204', 'bruceWayne', 'tue_a', '1', 'cfy2', '陈奥博', '心理问题初步诊断为：注意障碍     差点意思', '60', '2022-07-22 17:16:10 下午', '2022-07-22 17:15:36 下午');
+INSERT INTO `review` VALUES ('15', 'st2204', 'bruceWayne', 'mon_a', '0', 't2', '陆', '他不差意思了', '100', '2022-07-22 17:20:02 下午', '2022-07-22 17:19:09 下午');
 
 -- ----------------------------
 -- Table structure for test
@@ -326,12 +356,12 @@ CREATE TABLE `user` (
   `email` varchar(20) DEFAULT NULL,
   `user_type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '12345', '7328@qq.com', '1');
+INSERT INTO `user` VALUES ('1', 'admin', '123456', '85557328@qq.com', '1');
 INSERT INTO `user` VALUES ('3', 'cfy2', '123456', '1229682416@qq.com', '4');
 INSERT INTO `user` VALUES ('4', 't1', '0', '2147286369@qq.com', '3');
 INSERT INTO `user` VALUES ('5', 't2', '123456', '1887045226@qq.com', '3');
@@ -351,3 +381,8 @@ INSERT INTO `user` VALUES ('21', '15', '123456', '1355546516@qq.com', '2');
 INSERT INTO `user` VALUES ('22', '16', '123456', '12064516@qq.com', '2');
 INSERT INTO `user` VALUES ('23', 'st22', '123456', '6516516@qq.com', '2');
 INSERT INTO `user` VALUES ('24', 'st24', '123456', '15651651@qq.com', '2');
+INSERT INTO `user` VALUES ('25', 'st01', '123456', '651656@qq.com', '2');
+INSERT INTO `user` VALUES ('26', 'st07', '123456', '84651@qq.com', '2');
+INSERT INTO `user` VALUES ('27', 'st77', '123456', '498651@qq.com', '2');
+INSERT INTO `user` VALUES ('28', 'st21', '123456', '46164@qq.com', '2');
+INSERT INTO `user` VALUES ('29', 'st2204', '123', '984651@qq.com', '2');

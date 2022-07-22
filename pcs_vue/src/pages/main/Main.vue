@@ -20,7 +20,7 @@ export default {
         src: logo,
         alt: '上程数据',
         firstDes: '心理咨询系统',
-        secondDes: '第29组'
+        secondDes: 'SCUJ02'
       }
     }
   },
