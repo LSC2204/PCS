@@ -142,7 +142,7 @@ export default {
             {
               path: '/main/user_result_t',
               icon: 'el-icon-document-remove',
-              title: '预约结果'
+              title: '咨询结果'
             },
             {
               path: '/main/report_history',

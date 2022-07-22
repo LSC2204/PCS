@@ -41,7 +41,7 @@
         <report_dis ref="report_di" />
 <!--        :style="{ color:domain.groups == 1? '#ccc': domain.groups == 2 ? '#ccc' : '' }"-->
         <el-table id="s"
-                :data="result.filter(data => !data.isFirst)"
+                :data="result.filter(data=> {return !data.isFirst})"
                 style="width: 100%">
             <el-table-column
                     width="90">
