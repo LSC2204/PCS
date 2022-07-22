@@ -111,18 +111,18 @@
             @click="historyJumpout(scope.row)"
             >详细</el-button
           >
-          <!-- <el-button 
+          <el-button v-if="userType == 4"
             size="mini"
             type="success"
             @click="jumpout(scope.row.resultId)"
-            >填写咨询结案报告</el-button> -->
+            >完成初访报告</el-button>
             
-            <el-button v-if="scope.row.status.length>=8"
+            <el-button v-if="scope.row.status.length>=8 && userType == 3"
             size="mini"
             type="success"
             @click="jumpout(scope.row.resultId)"
             >填写结案报告</el-button>
-            <el-button v-if="scope.row.status.length<8"
+            <el-button v-if="scope.row.status.length<8 && userType == 3"
             size="mini"
             type="success"
             @click="jumpout(scope.row.resultId)"
