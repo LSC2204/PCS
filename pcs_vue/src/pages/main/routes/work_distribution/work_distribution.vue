@@ -366,31 +366,43 @@ export default {
       result: [],
       result1: [],
       ft: [],
-      id_exchange: 1,
+      //id_exchange: 1,
       score: 0,
       des: "",
       userData: [],
       des0: "",
       options: [
         {
-          value: "选项1",
-          label: "黄金糕",
+          value: "感觉障碍",
+          label: "感觉障碍",
         },
         {
-          value: "选项2",
-          label: "双皮奶",
+          value: "知觉障碍",
+          label: "知觉障碍",
         },
         {
-          value: "选项3",
-          label: "蚵仔煎",
+          value: "注意障碍",
+          label: "注意障碍",
         },
         {
-          value: "选项4",
-          label: "龙须面",
+          value: "记忆障碍",
+          label: "记忆障碍",
         },
         {
-          value: "选项5",
-          label: "北京烤鸭",
+          value: "思维障碍",
+          label: "思维障碍",
+        },
+        {
+          value: "情感障碍",
+          label: "情感障碍",
+        },
+        {
+          value: "意志障碍",
+          label: "意志障碍",
+        },
+        {
+          value: "智力障碍",
+          label: "智力障碍",
         },
       ],
       
@@ -431,7 +443,7 @@ export default {
 
     give_inf() {
       let re = {
-        resultId: this.id_exchange,
+        resultId: this.historyShowId,
         score: this.score.valueOf(),
         fellings: this.get_fellings(this.des0, this.des),
       };
