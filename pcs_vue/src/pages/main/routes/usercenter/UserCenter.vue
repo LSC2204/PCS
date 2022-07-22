@@ -118,29 +118,31 @@
           <el-dialog title="基本信息修改" :visible.sync="basicFormVisible">
           <el-form :model="form" :rules="rules">
             <el-form-item label="用户名" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.username" autocomplete="off" disabled></el-input>
+              <el-input v-model="userInfoChange.username" autocomplete="off" disabled></el-input>
             </el-form-item>
             <el-form-item label="真实姓名" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.realName" autocomplete="off" disabled></el-input>
+              <el-input v-model="userInfoChange.realName" autocomplete="off" disabled></el-input>
             </el-form-item>
             <el-form-item label="性别" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.sex" autocomplete="off" disabled></el-input>
+              <el-input v-model="userInfoChange.sex" autocomplete="off" disabled></el-input>
             </el-form-item>
-            <el-form-item label="生日" :label-width="formLabelWidth" >
+            <el-form-item label="生日" :label-width="formLabelWidth" disabled>
                         <el-date-picker
-                        v-model="userInfo.birthday"
+                        v-model="userInfoChange.birthday"
                         type="date"
-                        placeholder="选择日期">
+                        placeholder="选择日期"
+                        value-format="yyyy-MM-dd"
+                        >
                       </el-date-picker>
             </el-form-item>
             <el-form-item label="电话号码." :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.phone" autocomplete="off"></el-input>
+              <el-input v-model="userInfoChange.phone" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item label="地址" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.address" autocomplete="off"></el-input>
+              <el-input v-model="userInfoChange.address" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item label="电子邮箱" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.email" autocomplete="off"></el-input>
+              <el-input v-model="userInfoChange.email" autocomplete="off"></el-input>
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
@@ -153,7 +155,7 @@
         <el-dialog title="修改密码" :visible.sync="pwdFormVisible">
           <el-form :model="form" :rules="rules">
             <el-form-item label="原密码" :label-width="formLabelWidth" >
-              <el-input v-model="userInfo.password" autocomplete="off" disabled ></el-input>
+              <el-input v-model="userInfoChange.password" autocomplete="off" disabled ></el-input>
             </el-form-item>
             <el-form-item label="新密码" prop="password" :label-width="formLabelWidth">
               <el-input :placeholder="form.password" v-model="form.password" show-password></el-input>
@@ -208,6 +210,19 @@ export default {
         password:null,
         address:null
       },
+      userInfoChange: {
+        user_id:"",
+        username:"",
+        role:"",
+        realName:"",
+        sex:"",
+        birthday:"",
+        phone:"",
+        email:"",
+        is_first:"",
+        password:null,
+        address:null
+      },
       is_disabled:true,
       is_covered:true,
       pwdFormVisible:false,
@@ -233,6 +248,12 @@ export default {
       }
   },
   mounted(){
+
+
+
+
+  },
+  created() {
     getUserInfo().then(res => {
       this.userInfo.user_id=res.data.id
       this.userInfo.username=res.data.name
@@ -243,17 +264,14 @@ export default {
       this.userInfo.is_first=res.data.isfirst
       this.userInfo.address=res.data.address
       console.log(this.userInfo)
+        _getUserInfo().then(res =>{
+        this.userInfo.user_id=res.data.id;
+        this.userInfo.email=res.data.email;
+        this.userInfo.password=res.data.password;
+        this.userInfo.role=this.roleName
+        this.userInfoChange=JSON.parse(JSON.stringify(this.userInfo))
+        })
     })
-    _getUserInfo().then(res =>{
-      this.userInfo.user_id=res.data.id;
-      this.userInfo.email=res.data.email;
-      this.userInfo.password=res.data.password;
-    })
-    this.userInfo.role=this.roleName
-  
-  },
-  created() {
-
   },
   methods:{
     getCoveredPwd(pwd){
@@ -267,13 +285,18 @@ export default {
 
     handleSubmitPwd(){
       this.pwdFormVisible = false
-      submitUserPwd(this.form,this.userInfo)
+      submitUserPwd(this.form,this.userInfoChange)
+          console.log("修改密码！-----------")
+        setTimeout(() => {
+                this.$router.push({name:"login"})
+          }, 500);
+
     },
     handleSubmitBasic(){
       this.pwdFormVisible = false
-      submitUserBasic(this.userInfo)
+      submitUserBasic(this.userInfoChange)
       //修改成功后需要跳转页面，不考虑修改失败
-      this.$router.push(route)
+
     }
   },
   computed: {

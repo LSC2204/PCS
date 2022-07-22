@@ -9,9 +9,8 @@ export const first_inf = query => http.GET('/api/user/getfirst', query)
 export const getUserInfo = () => http.GET('/api/user/getcurPerson')
 export const getAllPerson = () => http.GET('/api/person/getall')
 export const submitUserBasic = (userInfo)=>{
-    console.log(userInfo)
     http.POST('/api/user/update_person?userId='+userInfo.user_id+'&email='+userInfo.email+"&address="+userInfo.address+
-    "&phoneNumber="+userInfo.phone)
+    "&phoneNumber="+userInfo.phone+"&password=")
 }
 export const submitUserPwd = (form,userInfo)=>{
     http.POST("/api/user/update_person?userId="+userInfo.user_id+"&email=&address="+
